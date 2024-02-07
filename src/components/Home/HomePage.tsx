@@ -1,7 +1,9 @@
 import { FC, useEffect, useState } from 'react';
 import { Pokemon, PokemonClient } from 'pokenode-ts';
-import { NavigationButtons } from '../Buttons/NavigationButton';
+import { HomeNavigationButtons } from '../Buttons/NavigationButton';
 import pokeballImage from '../../assets/images/Pokeball_icon-icons.com_67533.svg';
+// eslint-disable-next-line import/no-unresolved
+import { typeColor } from '../../models/typeColor';
 
 const Logo: FC = () => {
   return (
@@ -20,30 +22,6 @@ interface PokemonCardProps {
 }
 
 const PokemonCard: FC<PokemonCardProps> = ({ name, id, imageUrl, type }) => {
-  const typeColor = {
-    normal: 'bg-gray-500',
-    fire: 'bg-red-600',
-    fighting: 'bg-amber-600',
-    water: 'bg-blue-700',
-    flying: 'bg-sky-500',
-    grass: 'bg-green-500',
-    poison: 'bg-fuchsia-500',
-    electric: 'bg-yellow-500',
-    ground: 'bg-lime-500',
-    psychic: 'bg-pink-500',
-    rock: 'bg-stone-700',
-    ice: 'bg-cyan-500',
-    bug: 'bg-teal-400',
-    dragon: 'bg-indigo-700',
-    ghost: 'bg-purple-700',
-    dark: 'bg-black',
-    steel: 'bg-zinc-400',
-    fairy: 'bg-rose-400',
-    stellar: 'bg-amber-400',
-    none: 'bg-white',
-    '???': 'bg-slate-400',
-  };
-
   return (
     <div
       className={`card max-w-sm rounded bg-white text-center capitalize overflow-hidden shadow-lg m-4 transform transition duration-500 ease-in-out hover:scale-105 border-2 border-gray-500`}
@@ -103,7 +81,7 @@ const HomePage: FC = () => {
     <div className="flex flex-col min-h-screen">
       <header className="bg-red-500 text-white p-4">
         <Logo />
-        <NavigationButtons
+        <HomeNavigationButtons
           currentOffset={currentOffset}
           setOffset={setcurrentOffset}
         />
@@ -120,7 +98,7 @@ const HomePage: FC = () => {
         ))}
       </main>
       <footer className="bg-white text-black p-4">
-        <NavigationButtons
+        <HomeNavigationButtons
           currentOffset={currentOffset}
           setOffset={setcurrentOffset}
         />
