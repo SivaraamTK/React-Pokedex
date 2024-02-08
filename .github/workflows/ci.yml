@@ -27,7 +27,7 @@ jobs:
         run: npm install
 
       - name: Check lints
-        run: npm run lint:fix
+        run: npm run lint
 
       - name: Format code
         run: npm run format
