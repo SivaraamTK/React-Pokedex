@@ -11,6 +11,10 @@ module.exports = {
     //     NODE_ENV: JSON.stringify('development'),
     //   },
     // }),
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'disabled',
+      generateStatsFile: true,
+      statsOptions: { source: false },
+    }),
   ],
 };
