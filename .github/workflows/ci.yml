@@ -1,33 +1,45 @@
-name: CI
+name: CI/CD Workflow
 on:
+  push:
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: [16]
+        node_version: [14.x]
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Use Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node_version: ${{ matrix.node_version }}
+          node-version: ${{ matrix.node_version }}
+          cache: 'npm'
 
-    - name: Install dependencies
-      run: npm install
-    
-    - name: Check lints
-      run: npm run lint
+      - name: Install dependencies
+        run: npm install
 
-    # - name: Run the tests
-    #   run: npm run test
+      - name: Check lints
+        run: npm run lint:fix
 
-    - name: Build
-      run: npm run build
+      - name: Format code
+        run: npm run format
+
+      # - name: Run the tests
+      #   run: npm run test
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: build/
