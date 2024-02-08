@@ -1,14 +1,13 @@
 import { FC, useEffect, useState } from 'react';
 import { Pokemon, PokemonClient } from 'pokenode-ts';
 import { HomeNavigationButtons } from '../Buttons/NavigationButton';
-import pokeballImage from '../../assets/images/Pokeball_icon-icons.com_67533.svg';
-// eslint-disable-next-line import/no-unresolved
-import { typeColor } from '../../models/typeColor';
+import pokeballImage from '../../../public/assets/images/Pokeball_icon.svg';
+import { typeColor } from '../../models/TypeColor';
 
 const Logo: FC = () => {
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-4xl font-bold my-2">React Pokedex</h1>
+      <h1 className="text-4xl font-bold my-2">Reactdex</h1>
       <img className="w-24 h-24" src={pokeballImage} alt="Pokeball Icon" />
     </div>
   );

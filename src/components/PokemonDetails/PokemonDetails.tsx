@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { PokemonClient, Pokemon } from 'pokenode-ts';
 import { DetailNavigationButtons } from '../Buttons/NavigationButton';
-import { typeColor } from '../../models/typeColor';
+import { typeColor } from '../../models/TypeColor';
 
 const PokemonDetails: FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -88,7 +88,7 @@ const PokemonDetails: FC = () => {
             </div>
             <details className="mb-4 overflow-auto max-h-60">
               <summary className="text-xl font-bold cursor-pointer">
-                Stats
+                {`Stats (EV = Effort Value, BV = Base Value)`}
               </summary>
               <ul className="list-disc list-inside">
                 {pokemon.stats.map((stat, index) => (
