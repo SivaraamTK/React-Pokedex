@@ -130,13 +130,6 @@ const PokemonDetails: FC = () => {
                 ))}
               </ul>
             </details>
-            <a
-              href={pokemon.location_area_encounters}
-              className="text-blue-500 hover:text-blue-700 underline"
-            >
-              <br />
-              <h3 className="text-xl font-bold">Encountered Locations</h3>
-            </a>
             <h3 className="text-xl font-bold">Images</h3>
             <div className="grid grid-cols-3 gap-4">
               {pokemon.sprites

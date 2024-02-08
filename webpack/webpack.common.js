@@ -50,6 +50,19 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '..', './src/index.html'),
+      templateParameters: {
+        favicon: path.resolve(
+          __dirname,
+          '..',
+          './public/assets/images/favicon.ico'
+        ),
+        manifest: path.resolve(
+          __dirname,
+          '..',
+          './public/assets/manifest.webmanifest'
+        ),
+      },
+      inject: true,
     }),
     new CopyWebpackPlugin({
       patterns: [

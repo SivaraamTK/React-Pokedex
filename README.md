@@ -1,7 +1,7 @@
 # React-Typescript-Template
 
 <div align="center">
-<img src="./src/assets/images/react-typescript-template.png"/>
+<img src="./public/assets/images/react-typescript-template.png"/>
 </div>
 
 ## Welcome to my React template
